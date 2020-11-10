@@ -1,19 +1,19 @@
-from rest_framework.generics import RetrieveAPIView, UpdateAPIView
+from rest_framework.viewsets import  ModelViewSet
 from rest_framework import permissions
 
 from .models import UserNet
-from .serializers import GetUserNetSerializer
+from .serializers import GetUserNetSerializer, GetUserNetPublicSerializer
 
 
-class GetUserNetView(RetrieveAPIView):
-    """Вивід профіля user
+class UserNetPublicView(ModelViewSet):
+    """Вивід публічного профіля user
     """
     queryset = UserNet.objects.all()
-    serializer_class = GetUserNetSerializer
+    serializer_class = GetUserNetPublicSerializer
+    permission_classes = [permissions.AllowAny]
 
-
-class UpdateUserNetView(UpdateAPIView):
-    """Редагування користувача
+class UserNetView(ModelViewSet):
+    """Вивід профіля user
     """
     serializer_class = GetUserNetSerializer
     permission_classes = [permissions.IsAuthenticated]
