@@ -3,7 +3,7 @@
 Соц. мережа на Django
 
 - [Telegram](https://t.me/AleRyp)
-- [Tweeter](https://twitter.com/AleRypDJN)
+- [Twetter](https://twitter.com/AleRypDJN)
 ### Використано
 - Python  (^3.8)
 - Django Rest Framework
