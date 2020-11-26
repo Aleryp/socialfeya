@@ -14,18 +14,18 @@ class ListFollowerView(generics.ListAPIView):
         return Follower.objects.filter(user=self.request.user)
 
 
-class AddFollowerView(views.APIView):
-    """Adding into followers
+class FollowerView(views.APIView):
+    """Adding/deleting into/from followers
     """
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, pk):
-        user = UserNet.objects.filter(id=pk)
-        if user.exists():
-            Follower.objects.create(subscriber=request.user, user=user)
-            return response.Response(status=201)
-        return response.Response(status=404)
-
+        try:
+            user = UserNet.objects.get(id=pk)
+        except Follower.DoesNotExist:
+            return response.Response(status=404)
+        Follower.objects.create(subscriber=request.user, user=user)
+        return response.Response(status=201)
 
     def delete(self, request, pk):
         try:
