@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 
-urlpattarns = [
-    path('add', views.AddFollowerView),
-    path('', views.ListFollowerView)
+urlpatterns = [
+    path('<int:pk>', views.FollowerView.as_view()),
+    path('', views.ListFollowerView.as_view())
 ]
