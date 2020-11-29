@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     'mptt',
+    'corsheaders',
     'drf_yasg',
+
 
     'src.profiles',
     'src.wall',
@@ -56,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -185,10 +188,12 @@ CORS_ORIGIN_WHITELIST = [
     "http://127.0.0.1:8000",
     "http://127.0.0.1:1313",
     "http://localhost:1313",
+    "http://localhost:4200",
+    "http://127.0.0.1:4200",
 ]
 
 EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS", None)
 EMAIL_HOST = os.environ.get("EMAIL_HOST", None)
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", None)
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", None)
+EMAIL_HOST_PASSWORD = 'xwgftyninbwfkipi'
 EMAIL_PORT = os.environ.get("EMAIL_PORT", None)
