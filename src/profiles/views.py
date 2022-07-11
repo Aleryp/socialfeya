@@ -12,6 +12,7 @@ class UserNetPublicView(ModelViewSet):
     serializer_class = GetUserNetPublicSerializer
     permission_classes = [permissions.AllowAny]
 
+
 class UserNetView(ModelViewSet):
     """Вивід профіля user
     """
